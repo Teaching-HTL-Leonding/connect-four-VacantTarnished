@@ -9,7 +9,7 @@ export class Level2Component {
   private currentWinnerIndex = 0;
   private playerStyles: string[];
   private playerNames: string[];
-  private gameBoard!: number[][];
+  protected gameBoard!: number[][];
 
   constructor() {
     this.playerNames = ['', 'Red', 'Blue']
@@ -41,7 +41,7 @@ export class Level2Component {
 
   // TODO: Complete this class by adding the appropriate code
   // At the end, this should become a working connect-four-game on a 4 x 4 board.
-  public getWinnerIndex(): number {
+  protected getWinnerIndex(): number {
     for (let i = 0; i < this.gameBoard.length; i++) {
       if (this.gameBoard[i][0] === this.gameBoard[i][1] && this.gameBoard[i][1] === this.gameBoard[i][2] && this.gameBoard[i][2] === this.gameBoard[i][3]) {
         return this.gameBoard[i][0];
