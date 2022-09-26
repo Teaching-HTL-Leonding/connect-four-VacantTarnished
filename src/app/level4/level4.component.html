@@ -3,3 +3,20 @@
 <!--
   TODO: Enhance solution from level 3 by extracting the logic in a separate Angular service.
 -->
+
+<table class="connect-four-board">
+  <tbody>
+    <tr>
+      <td *ngFor="let column of gameBoard[0]; let i = index" class="indicator">
+        <app-column-indicator [columnIndex]="i" (drop)="drop($event)" [playerIndex]="currentPlayer"></app-column-indicator>
+      </td>
+    </tr>
+    <tr *ngFor="let row of gameBoard; let rowIx = index">
+      <td *ngFor="let column of row; let colIx = index"><div class="coin" [class]="getStyle(rowIx,colIx)"></div></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 [hidden]="!winner">The winner is {{ winner }}</h2>
+
+<button (click)="restart()">Restart</button>
